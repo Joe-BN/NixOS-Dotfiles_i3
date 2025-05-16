@@ -35,9 +35,18 @@ bindsym $mod+Return exec kitty
 
 # kill focused window
 bindsym $mod+q kill
+# bindsym $mod+z kill # backup
 
-# start dmenu (a program launcher)
+# start rofi ( program launcher)
 bindsym $mod+d exec rofi -show drun
+
+# Other personal binds
+# start thunar (grafical file manager)
+bindsym $mod+a exec thunar
+# screen shot with flameshot
+bindsym Print exec --no-startup-id sh -c 'maim | tee ~/Pictures/Screenshots/$(date +%s).png | xclip -selection clipboard -t image/png'
+bindsym $mod+Shift+s exec --no-startup-id sh -c 'maim -s | tee ~/Pictures/Screenshots/$(date +%s)_area.png | xclip -selection clipboard -t image/png'
+
 
 # change focus
 bindsym $mod+h focus left
@@ -84,7 +93,7 @@ bindsym $mod+Shift+space floating toggle
 bindsym $mod+space focus mode_toggle
 
 # focus the parent container
-bindsym $mod+a focus parent
+#bindsym $mod+a focus parent
 
 # focus the child container
 #bindsym $mod+d focus child
@@ -162,7 +171,7 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 bar {
-        status_command i3status
+    status_command i3status
 	position top
 	font pango: Arimo 10
 	separator_symbol "|"
@@ -177,5 +186,4 @@ focus_follows_mouse no
 
 smart_gaps on
 gaps inner 8
-
 
